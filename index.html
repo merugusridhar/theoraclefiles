@@ -1,0 +1,296 @@
+<title>The Oracle Files</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a protest placard wall over a dated ledger. Big condensed type, red flag colour, ink and chalk. */
+:root {
+  --bg: #E9F1EB;
+  --surface: #FFFFFF;
+  --fg: #0F1A14;
+  --muted: #4F6258;
+  --rule: #BFD1C5;
+  --red: #0B7A3E;
+  --on-red: #FFFFFF;
+  --yellow: #F2C200;
+  --on-yellow: #14171C;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1511; --surface: #15201A; --fg: #E8F0EA; --muted: #9BB0A3; --rule: #26352C;
+    --red: #3DDC84; --on-red: #0D1511; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1511; --surface: #15201A; --fg: #E8F0EA; --muted: #9BB0A3; --rule: #26352C;
+  --red: #3DDC84; --on-red: #0D1511; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 17px; line-height: 1.6;
+}
+a { color: var(--fg); text-underline-offset: 3px; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+a:hover { color: var(--red); }
+a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.in {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: .92; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(40px, 7vw, 68px); font-weight: 900; letter-spacing: .005em; }
+section { padding-block: clamp(40px, 7vw, 76px); border-top: 2px solid var(--fg); }
+p { margin: 0 0 1em; max-width: 66ch; }
+
+/* top bar */
+.bar { background: var(--fg); color: var(--bg); }
+.bar .in { padding-block: 10px; display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between; }
+.bar .label { color: inherit; opacity: .85; }
+
+/* hero */
+.hero { padding-block: clamp(36px, 7vw, 80px) clamp(32px, 5vw, 56px); }
+.stamp {
+  display: inline-block; background: var(--red); color: var(--on-red);
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(22px, 4vw, 34px); letter-spacing: .06em; padding: 4px 14px 2px; transform: rotate(-2deg);
+}
+.hero h1 { font-size: clamp(76px, 19vw, 230px); font-weight: 900; letter-spacing: -.005em; margin-top: 20px; }
+.hero h1 span { display: block; }
+.slogan {
+  font-family: var(--display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(26px, 4.6vw, 46px); line-height: 1; margin-top: 22px; max-width: 18em;
+}
+.slogan mark { background: var(--yellow); color: var(--on-yellow); padding: 0 .2em; }
+.lede { font-size: clamp(18px, 2.2vw, 21px); margin-top: 22px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: end; }
+.facts { margin: 0; border-top: 2px solid var(--fg); }
+.facts div { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.facts dt { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.facts dd { margin: 0; font-weight: 600; }
+.notice {
+  margin-top: clamp(28px, 4vw, 44px); border: 2px dashed var(--red); padding: 16px 20px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 18px; align-items: start;
+}
+.notice strong { font-family: var(--display); font-size: 28px; text-transform: uppercase; color: var(--red); line-height: 1; white-space: nowrap; }
+.notice p { margin: 0; max-width: none; }
+
+/* placards */
+.wall { display: flex; flex-wrap: wrap; gap: 20px 18px; margin-top: 36px; }
+.placard {
+  background: var(--surface); border: 3px solid var(--fg); padding: 14px 18px 12px; max-width: 100%;
+  font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(24px, 3.6vw, 36px); line-height: 1;
+  box-shadow: 6px 6px 0 var(--fg);
+}
+.placard:nth-child(odd) { transform: rotate(-1.2deg); }
+.placard:nth-child(even) { transform: rotate(1deg); }
+.placard.red { background: var(--red); color: var(--on-red); }
+.placard.yel { background: var(--yellow); color: var(--on-yellow); }
+.placard small { display: block; font-family: var(--mono); font-weight: 400; font-size: 11px; letter-spacing: .1em; margin-top: 8px; opacity: .8; }
+
+/* complaint */
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 64px); margin-top: 32px; }
+.pull { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(34px, 5vw, 54px); line-height: .98; }
+.pull b { color: var(--red); font-weight: 800; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
+.chips li { font-family: var(--mono); font-size: 12px; border: 1.5px solid var(--fg); padding: 3px 9px; }
+.tag { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; background: var(--yellow); color: var(--on-yellow); padding: 2px 7px; margin-right: 8px; white-space: nowrap; }
+
+/* demands */
+.demands { list-style: none; counter-reset: d; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 5vw, 64px); }
+.demands li { counter-increment: d; display: grid; grid-template-columns: 2.6em minmax(0, 1fr); align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); font-weight: 500; }
+.demands li::before { content: counter(d, decimal-leading-zero); font-family: var(--display); font-weight: 900; font-size: 30px; color: var(--red); line-height: 1; }
+
+/* timeline */
+.tl { margin: 32px 0 0; padding: 0; list-style: none; border-top: 2px solid var(--fg); }
+.tl li { display: grid; grid-template-columns: 11em minmax(0, 1fr); gap: 8px 28px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.tl time { font-family: var(--display); font-weight: 800; font-size: 28px; text-transform: uppercase; line-height: 1; }
+.tl p { margin: 0; }
+.tl .src { font-family: var(--mono); font-size: 12px; color: var(--muted); display: block; margin-top: 4px; }
+
+/* coverage */
+.cov { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 18px; }
+.card { background: var(--surface); border: 2px solid var(--fg); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h3 { font-size: 28px; }
+.card .t { font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.card .m { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: auto; }
+.press { margin-top: 28px; padding: 18px 20px; background: var(--fg); color: var(--bg); }
+.press p { margin: 0; max-width: none; }
+.press .label { color: inherit; opacity: .8; display: block; margin-bottom: 6px; }
+
+/* not established */
+.ne { margin: 32px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.ne li { border-top: 6px solid var(--red); background: var(--surface); padding: 16px 18px 18px; }
+.ne b { display: block; font-family: var(--display); font-size: 26px; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+
+/* sources */
+.src-list { margin: 28px 0 0; padding: 0; list-style: none; columns: 2 340px; column-gap: 40px; }
+.src-list li { break-inside: avoid; padding: 7px 0; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; font-size: 15px; }
+.src-list span { font-family: var(--mono); font-size: 12px; color: var(--muted); display: block; }
+footer { border-top: 2px solid var(--fg); padding-block: 28px 40px; color: var(--muted); font-size: 14px; }
+footer p { max-width: 80ch; }
+
+@media (max-width: 760px) {
+  .hero-grid, .two { grid-template-columns: minmax(0, 1fr); }
+  .demands { grid-template-columns: minmax(0, 1fr); }
+  .tl li { grid-template-columns: minmax(0, 1fr); }
+  .facts div { grid-template-columns: 8.5em minmax(0, 1fr); }
+  .notice { grid-template-columns: minmax(0, 1fr); }
+  .placard { box-shadow: 4px 4px 0 var(--fg); }
+}
+@media (prefers-reduced-motion: no-preference) { .placard { transition: transform .15s ease; } .placard:hover { transform: rotate(0deg); } }
+</style>
+
+<div class="bar"><div class="in">
+  <span class="label">The Oracle Files</span>
+  <span class="label">Hyderabad · Updated 19 October 2026</span>
+</div></div>
+
+<header class="hero"><div class="in">
+  <div class="hero-grid">
+    <div>
+      <span class="stamp">The Oracle Files agitator</span>
+      <h1><span>Merugu</span><span>Sridhar</span></h1>
+      <p class="slogan">16 hours. No voice. <mark>Now we speak.</mark></p>
+      <p class="lede">A Hyderabad IT professional who took an overtime and termination complaint against his employer to the Telangana labour department and the National Human Rights Commission, then turned it into a public campaign for workers' dues and dignity.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Based in</dt><dd>Hyderabad</dd></div>
+      <div><dt>Age, as reported</dt><dd>45</dd></div>
+      <div><dt>Tenure</dt><dd>14 years at the employer</dd></div>
+      <div><dt>Says terminated</dt><dd>September 2025</dd></div>
+      <div><dt>Filed with</dt><dd>Telangana labour dept. and NHRC</dd></div>
+      <div><dt>Campaign names</dt><dd>Janayak · Freedom Struggle 2.0</dd></div>
+    </dl>
+  </div>
+  <div class="notice">
+    <strong>Unverified</strong>
+    <p>Everything on this page about the dispute is his account or the framing of the outlets that covered it. Oracle's response was not found, and no published ruling on the labour complaint was found.</p>
+  </div>
+</div></header>
+
+<section id="wall"><div class="in">
+  <span class="label">Seen on placards, August to September 2026</span>
+  <h2 style="margin-top:10px">Signs from the dharna</h2>
+  <div class="wall">
+    <div class="placard red">Workers are not machines</div>
+    <div class="placard">I need my job back</div>
+    <div class="placard yel">We need a law for corporate employees</div>
+    <div class="placard">Notice period should be mutual</div>
+    <div class="placard">I need my pending allowances</div>
+    <div class="placard red">Stop forced resignations</div>
+    <div class="placard">I was fired for having food at the company guest house</div>
+    <div class="placard yel">Fair dues<small>Campaign artwork</small></div>
+    <div class="placard">Dignity at work<small>Campaign artwork</small></div>
+  </div>
+</div></section>
+
+<section id="complaint"><div class="in">
+  <span class="label">The complaint</span>
+  <div class="two">
+    <p class="pull">Bill the client by the hour, <b>pay the employee</b> for the hour.</p>
+    <div>
+      <p><span class="tag">His account</span>He says he worked more than 16 hours a day for three to four months without overtime pay, and argues that if clients are billed hourly, employees should be paid for the extra hours.</p>
+      <p><span class="tag">His account</span>He says he was terminated within a week of raising the issue. He seeks pending overtime dues, interest and penalties.</p>
+      <p>The Logical Indian reports that he went to the NHRC and then the Telangana Labour Department. Labour officials acknowledged the complaint and said it is under review, without further comment. Siasat gives his age as 45 and the long days as lasting three to four months.</p>
+      <p class="label" style="margin-bottom:8px">Also reported by</p>
+      <ul class="chips"><li>The Times of India</li><li>Mint</li><li>The Hans India</li><li>Siasat</li><li>The Logical Indian</li><li>Hyderabad Mail</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="demands"><div class="in">
+  <span class="label">Corporate Mazdoor Union banner, Dharna Chowk</span>
+  <h2 style="margin-top:10px">Ten demands</h2>
+  <ol class="demands">
+    <li>Six months' net salary as severance pay</li>
+    <li>No arbitrary termination; due process must be followed</li>
+    <li>Right to disconnect: no work after working hours</li>
+    <li>8-hour workday and overtime pay</li>
+    <li>Fair performance improvement plan (PIP)</li>
+    <li>Flexible work-from-home option</li>
+    <li>Notice period has to be mutual</li>
+    <li>Compensation for unlawfully terminated employees</li>
+    <li>Manager's performance also evaluated by team members</li>
+    <li>Labour commissioner cases resolved within 45 days</li>
+  </ol>
+</div></section>
+
+<section id="timeline"><div class="in">
+  <span class="label">Protests and escalation, 2026</span>
+  <h2 style="margin-top:10px">What happened, in dates</h2>
+  <ol class="tl">
+    <li><time datetime="2026-02-19">19 Feb</time><div><p>He shares a consolidated list of coverage of his complaint on LinkedIn, naming The Times of India, Mint, The Hans India and Hyderabad Mail.</p></div></li>
+    <li><time datetime="2026-03">Late Mar</time><div><p>He tells PTI he was let go in September after protesting a 16-hour shift, and that Indian staff in the US were hit harder by Oracle's cuts. The story runs on ETV Bharat, The Wire, Outlook Business, Upstox, Storyboard18, News24 and Shafaqna. The figure of about 12,000 India layoffs is attributed to affected employees, and ETV Bharat says Oracle declined to comment.</p></div></li>
+    <li><time datetime="2026-08-01">1–2 Aug</time><div><p>Peaceful protest at Dharna Chowk, Hyderabad, under the Corporate Mazdoor Union banner with ten demands. Covered by hmtv, Tholi Velugu and Signal TV Telugu.</p></div></li>
+    <li><time datetime="2026-08-17">17 Aug</time><div><p>Road sit-in with police present. The same day M9 News reports his allegation that he received death threats and hid in Delhi for nearly two months, and that he may launch a Corporate Janata Party and protest at Jantar Mantar.</p><span class="src">M9 News · its headline is phrased as a question and the allegations are noted as unverified</span></div></li>
+    <li><time datetime="2026-08-21">21 Aug</time><div><p>Outreach to commuters at a metro station near Raheja Mindspace.</p></div></li>
+    <li><time datetime="2026-09-18">18 Sep</time><div><p>Sakshi Family premieres two episodes about him and Oracle.</p></div></li>
+    <li><time datetime="2026-09-21">21–22 Sep</time><div><p>Sit-in on the driveway outside an Oracle campus, with placards carrying the Oracle Files name. A man in a white shirt with a black armband speaks to camera.</p></div></li>
+    <li><time datetime="2026-09-25">25 Sep</time><div><p>Sit-in at Gate 3 and a march with red union flags. A separate clip shows a speaker beside an AITEU banner.</p><span class="src">Dates come from file names. The files do not state the organisers or what was said, and no independent news report of the September protests was found.</span></div></li>
+  </ol>
+</div></section>
+
+<section id="coverage"><div class="in">
+  <span class="label">YouTube and TV, titles as the channels framed them</span>
+  <h2 style="margin-top:10px">In the media</h2>
+  <div class="cov">
+    <article class="card"><h3>Khyathi Connects</h3><p class="t">"Merugu Sridhar Telugu Interview" and a series of short clips titled "Oracle Files Merugu Sridhar"</p><p style="margin:0;font-size:15px">One long interview cut into episodes. Its banners cover his plans for a union for IT employees and a Corporate Janata Party with a Jantar Mantar dharna, plus further allegations about threats and hiring. These are claims voiced in the interview and no source found has verified them.</p><span class="m">Promo 1.8K views, 1 month ago · clips 108 to 2K views</span></article>
+    <article class="card"><h3>Telugu Popular TV</h3><p class="t">"Oracle Dandupalyam Files Ex-Employee Merugu Sridhar Reveals Shocking Workplace Experience"</p><span class="m">2K views, 1 month ago</span></article>
+    <article class="card"><h3>Sakshi Family</h3><p class="t">"Merugu Sridhar Fires On Oracle CTO Larry Ellison | Oracle Fires 30000 Employees"</p><span class="m">9:11 · 1.6K views, 4 weeks ago</span></article>
+    <article class="card"><h3>Abdullah Quadri</h3><p class="t">"The 16-Hour Workdays, Racist Remarks, and Fight for Justice in India's IT Sector | Sridhar Merugu ep6"</p><span class="m">8:09 · 1K views, 7 months ago</span></article>
+    <article class="card"><h3>HIT TV Live</h3><p class="t">"Sridhar Merugu Exposed #theOraclefiles | Oracle Layoffs Hyderabad"</p><span class="m">Title as shown in the supplied screenshot</span></article>
+    <article class="card"><h3>Popular TV</h3><p class="t">"Oracle Corporation Layoffs Ex-Employee Shares Emotional Story Behind 30000 Job Cuts | Merugu Sridhar"</p><span class="m">Title as shown in the supplied screenshot</span></article>
+  </div>
+  <div class="press"><span class="label">Read this before the numbers</span><p>Figures such as 30,000 or 80,000 job cuts appear in channel titles and thumbnails. They are the channels' framing and are not verified. View counts were captured from screenshots on 18 October 2026.</p></div>
+</div></section>
+
+<section id="movement"><div class="in">
+  <span class="label">Campaign framing</span>
+  <h2 style="margin-top:10px">Names the movement uses</h2>
+  <div class="two">
+    <p class="pull">Then, a <b>freedom struggle</b>. Now, a fight for dignity.</p>
+    <div>
+      <p><strong>Freedom Struggle 2.0</strong> casts the campaign as a modern successor to the independence movement, with employees demanding fair dues and dignity at work.</p>
+      <p><strong>Janayak</strong> is the campaign's name for him, shown on its portrait artwork.</p>
+      <p><strong>Mancherial to Memphis</strong> is a poster that cites the Singareni coal miners as inspiration, with the slogan "Workers are not machines".</p>
+      <p><strong>The Gen Z Movement</strong> is poster art that sets the Civil Rights Movement beside the Oracle Files, under the line "The fight for justice continues".</p>
+      <p style="color:var(--muted);font-size:15px">The posters are stylised or AI-generated artwork, not documentary photographs.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="gaps"><div class="in">
+  <span class="label">Limits of the record</span>
+  <h2 style="margin-top:10px">What is not established</h2>
+  <ul class="ne">
+    <li><b>No ruling</b>No published decision on the labour complaint was found.</li>
+    <li><b>No reply from Oracle</b>Oracle's response was not found. ETV Bharat says Oracle declined to comment on the layoff reports.</li>
+    <li><b>Threat claims unverified</b>The death-threat and hiding allegations come from M9 News reporting his account. They have not been independently verified.</li>
+    <li><b>September protests</b>The photos and clips do not state the organisers or what was said, and no independent news report was found.</li>
+    <li><b>Social accounts</b>No X, Instagram or Facebook account was tied to him. Results were other people with similar names.</li>
+  </ul>
+</div></section>
+
+<section id="sources"><div class="in">
+  <span class="label">Sources</span>
+  <h2 style="margin-top:10px">Where this comes from</h2>
+  <ul class="src-list">
+    <li><a href="https://m9.news/social-media-viral/merugu-sridhar-oracle-allegations-corporate-janata-party/">M9 News: Corporate Janata Party allegations</a><span>17 Aug 2026</span></li>
+    <li><a href="https://siasat.com/hyderabad-it-professional-files-complaint-over-16-hour-workdays-3336255/">Siasat: complaint over 16-hour workdays</a></li>
+    <li><a href="https://thelogicalindian.com/hyderabad-employee-fired-after-questioning-16-hour-workdays-moves-labour-department-for-justice/">The Logical Indian: labour department complaint</a></li>
+    <li><a href="https://m.thewire.in/article/labour/oracle-fires-12000-employees-in-india-another-round-of-layoffs-expected-within-a-month">The Wire (PTI): Oracle layoffs in India</a></li>
+    <li><a href="https://outlookbusiness.com/amp/story/corporate/oracle-fires-12000-in-india-more-cuts-expected-within-a-month">Outlook Business (PTI): Oracle layoffs in India</a></li>
+    <li><a href="https://storyboard18.com/amp/brand-makers/oracle-layoffs-12000-jobs-cut-in-india-amid-ai-push-more-layoffs-likely-93832.htm">Storyboard18 (PTI): Oracle layoffs</a></li>
+    <li><a href="https://etvbharat.com/en/business/oracle-lays-off-2026-around-several-employees-in-india-another-round-likely-within-amonth-enn26033107350">ETV Bharat (PTI): Oracle layoffs</a></li>
+    <li><a href="https://in.linkedin.com/in/sridhar-merugu-334362137">LinkedIn: Sridhar Merugu</a></li>
+    <li>Also reported: The Times of India, Mint, The Hans India, Hyderabad Mail<span>Links not captured in the profile</span></li>
+  </ul>
+</div></section>
+
+<footer><div class="in">
+  <p>Compiled on 19 October 2026 from public web sources and from the photos, clips and screenshots supplied for the profile. Allegations are unverified and belong to the people and outlets named. This is an independent write-up and is not affiliated with Oracle.</p>
+</div></footer>
